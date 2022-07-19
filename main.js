@@ -1,9 +1,6 @@
 const Redditube = require("redditube");
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
+const prompt = require('prompt-sync')();
 
 // Configure access to Reddit
 Redditube.config({
@@ -20,12 +17,7 @@ Redditube.on("status", status => console.log(status));
 Redditube.on("error", error => console.log(error));
 Redditube.on("end", () => console.log("End event!"));
 
-var id = "";
-
-readline.question('Id of the reddit thread: ', name => {
-    id = name;
-    readline.close();
-});
+var id = prompt("ID: ");
 
 // Option 1
 // Use .then() and .catch()
