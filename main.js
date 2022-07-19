@@ -15,7 +15,7 @@ Redditube.on("status", status => console.log(status));
 Redditube.on("error", error => console.log(error));
 Redditube.on("end", () => console.log("End event!"));
 
-Redditube.make(process.argv.slice(2)[0], process.argv.slice(2)[1]).then(videoPath => {
+Redditube.make(process.argv.slice(2)[0], parseInt(process.argv.slice(2)[1])).then(videoPath => {
     console.log(videoPath);
 }).catch(error => {
     console.log(error);
